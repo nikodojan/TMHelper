@@ -1,40 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:id="@+id/activity_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-	<android.support.v7.widget.Toolbar
-		android:id="@+id/toolbar"
+	<FrameLayout
+		android:id="@+id/fragment_content"
 		android:layout_width="match_parent"
-		android:layout_height="?android:attr/actionBarSize"
-        android:elevation="4dp"
-		android:background="@android:color/black">
+		android:layout_height="match_parent"
+		android:layout_above="@+id/navigationWrapperLayout" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:textColor="@android:color/white"/>
+	<android.support.v4.view.ViewPager
+		android:id="@+id/viewPager1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/bottom_navigation" />
 
-        <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Players"
-	        android:textColor="@android:color/white"/>
+    
 
-	</android.support.v7.widget.Toolbar>
-
-    <android.support.v7.widget.RecyclerView
-	    android:id="@+id/historyRecyclerView"
-	    android:background="@android:color/black"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:scrollbars="vertical"/>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/navigation_main"
+        app:labelVisibilityMode="labeled"
+    />
 
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

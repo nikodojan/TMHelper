@@ -7,9 +7,10 @@
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="10dp"
-	android:background="@drawable/custom_borders">
+    android:elevation="4px"
+    android:background="@drawable/custom_borders">
 
-	<RelativeLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp">
@@ -19,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:textColor="@color/lightGray"
+            android:textColor="@android:color/black"
             android:text="21.12.20"
             android:paddingLeft="10dp"
             android:paddingTop="4dp"/>
@@ -38,13 +39,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:textColor="@color/lightGray"
+                android:textColor="@android:color/black"
                 android:text="Niko, Freja, Player"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@android:color/black"/>
 
         </LinearLayout>
 
@@ -54,7 +55,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:textSize="18sp"
-            android:textColor="@color/lightGray"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:layout_toRightOf="@+id/gameDateTextView"
             android:layout_below="@+id/allPlayersLinearLayout"

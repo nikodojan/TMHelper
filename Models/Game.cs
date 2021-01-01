@@ -42,41 +42,61 @@ namespace TMHelper.Models
 
         public Game()
         {
-            _date = DateTime.Now.ToString("dd / MM / yy");
             _corporations = new List<Corporation>();
+        }
 
+        public List<string> Players()
+        {
+            List<string> playerNames = new List<string>();
+            foreach (var c in _corporations)
+            {
+                playerNames.Add(c.PlayerName);
+            }
+            return playerNames;
         }
 
         public string GetAllPlayerNames()
         {
-            List<string> names = new List<string>();
-            foreach (var c in _corporations)
+            List<string> names = Players();
+            if (names.Count == 0)
             {
-                names.Add(c.PlayerName);
+                return "No participants";
             }
-
             string namesString = string.Join(", ", names);
             return namesString;
         }
 
-        public string GetWinner()
+        public int MaxPoints()
         {
+            if (_corporations.Count < 1)
+            {
+                return 0;
+            }
             List<int> points = new List<int>();
             foreach (var c in _corporations)
             {
                 points.Add(c.TotalPoints);
             }
-            int maxPoints = points.Max();
+            int maxPoints = (points.Count != 0) ? points.Max() : 0;
+            return maxPoints;
+        }
 
+        public List<string> Winner()
+        {
             List<string> winnerNames = new List<string>();
             foreach (var c in _corporations)
             {
-                if (c.TotalPoints == maxPoints)
+                if (c.TotalPoints == MaxPoints())
                 {
                     winnerNames.Add(c.PlayerName);
                 }
             }
+            return winnerNames;
+        }
 
+        public string GetWinner()
+        {
+            List<string> winnerNames = Winner();
             string names = "";
             if (winnerNames.Count > 1)
             {
@@ -86,9 +106,7 @@ namespace TMHelper.Models
             {
                 names = winnerNames[0];
             }
-
-            string winnerString = $"{names}, {maxPoints}";
-
+            string winnerString = $"{names}, {MaxPoints()}";
             return winnerString;
         }
 

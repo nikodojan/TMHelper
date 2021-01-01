@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbarNC"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:elevation="4dp"
+		android:background="@android:color/black">
+
+		<RelativeLayout
+			android:id="@+id/toolbarRelativeLayoutNC"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal">
+
+			<LinearLayout
+				android:id="@+id/imageHolderLayoutNC"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:orientation="vertical"
+				android:background="@drawable/corporation_24">
+			</LinearLayout>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/imageHolderLayoutNC"
+				android:text="Corporation details"
+				android:layout_centerVertical="true"
+				android:textSize="20sp"
+				android:paddingLeft="20dp"
+				android:textColor="@android:color/white"/>
+		</RelativeLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/lightGray"/>
+
+	</android.support.v7.widget.Toolbar>
+		
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scrollbars="vertical">
+
+	<!--User input section-->
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="30dp">
+
+		<!--Player name-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:gravity="left"
+                        android:layout_weight="0.4"
+                        android:text="Player"/>
+                    <Spinner
+                        android:id="@+id/playerNameSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:layout_weight="0.6"/>
+                </LinearLayout>
+
+		<!--Terraforming Rate-->
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Terraforming Rate"
+                    android:layout_weight="0.7"
+                    android:gravity="left"
+					android:textSize="18sp"/>
+                <EditText
+                    android:id="@+id/terraformingRateEntry"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:maxLength="3"/>
+		</LinearLayout>
+
+		<!--Milestones-->
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="Milestones Points"
+				android:layout_weight="0.7"
+				android:gravity="left"
+				android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RadioButton
+						android:id="@+id/ms0pointsRadio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0" />
+                </LinearLayout>
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="center">
+
+				<RadioButton
+					android:id="@+id/ms5pointsRadio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="false"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="5" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="center">
+
+				<RadioButton
+					android:id="@+id/ms10pointsRadio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="false"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="10" />
+			</LinearLayout>
+			<LinearLayout
+				
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="center">
+
+				<RadioButton
+					android:id="@+id/ms15pointsRadio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="false"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="15" />
+			</LinearLayout>
+
+		</LinearLayout>
+		
+		<!--Awards-->
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="20dp">
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="Awards Points"
+				android:layout_weight="0.7"
+				android:gravity="left"
+				android:textSize="18sp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <RadioButton
+	                    android:id="@+id/aw0pointsRadio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0" />
+                </LinearLayout>
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="center">
+
+				<RadioButton
+					android:id="@+id/aw2pointsRadio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="false"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="2" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="center">
+
+				<RadioButton
+					android:id="@+id/aw5pointsRadio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:checked="false"/>
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="5"
+					android:gravity="center|center_horizontal" />
+			</LinearLayout>
+		</LinearLayout>
+
+		<!--Greeneries-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="Greenery Points"
+				android:layout_weight="0.7"
+				android:gravity="left"
+				android:textSize="18sp"/>
+			<EditText
+				android:id="@+id/greeneriesEntry"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="0.3"
+				android:inputType="number"
+				android:imeOptions="actionNext"
+				android:layout_marginRight="20dp"
+				android:layout_marginLeft="20dp"
+				android:maxLength="3"/>
+		</LinearLayout>
+
+		<!--Cities-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="City Points"
+				android:layout_weight="0.7"
+				android:gravity="left"
+				android:textSize="18sp"/>
+			<EditText
+				android:id="@+id/citiesEntry"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="0.3"
+				android:inputType="number"
+				android:imeOptions="actionNext"
+				android:layout_marginRight="20dp"
+				android:layout_marginLeft="20dp"
+				android:maxLength="3"/>
+		</LinearLayout>
+
+		<!--Cards-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="Points from cards"
+				android:layout_weight="0.7"
+				android:gravity="left"
+				android:textSize="18sp"/>
+			<EditText
+				android:id="@+id/cardsEntry"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="0.3"
+				android:inputType="number"
+				android:imeOptions="actionNext"
+				android:layout_marginRight="20dp"
+				android:layout_marginLeft="20dp"
+				android:maxLength="3"/>
+		</LinearLayout>
+
+
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:layout_marginTop="20dp">
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Total points: "
+				android:textSize="18sp"/>
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/totalPointsView"
+				android:textSize="24sp"/>
+
+		</LinearLayout>
+
+
+
+	</LinearLayout>
+	</ScrollView>
+	</LinearLayout>
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/saveCorporationFab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        
+		android:layout_margin="16dp"
+		android:layout_gravity="bottom|end"
+		app:srcCompat="@drawable/save_24"
+	/>
+
+</android.support.design.widget.CoordinatorLayout>

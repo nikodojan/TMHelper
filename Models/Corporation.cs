@@ -11,12 +11,16 @@ using System.Text;
 
 namespace TMHelper.Models
 {
-    class Corporation
+    public class Corporation
     {
-        private string _playerName;
-        private int _totalPoints;
 
         public string PlayerName { get; set; }
         public int TotalPoints { get; set; }
-    }
+        public int TerraformingRate { get; set; }
+        public int Milestones { get; set; }
+        public int Awards { get; set; }
+        public int Greeneries { get; set; }
+        public int Cities { get; set; }
+        public int Cards { get; set; }
+}
 }

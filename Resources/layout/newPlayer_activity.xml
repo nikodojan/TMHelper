@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbarNP"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:elevation="4dp"
+		android:background="@android:color/black">
+
+		<RelativeLayout
+			android:id="@+id/toolbarRelativeLayoutNP"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal"
+		>
+
+			<LinearLayout
+				android:id="@+id/imageHolderLayoutNP"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:orientation="vertical"
+				android:background="@drawable/add_player_24">
+			</LinearLayout>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/imageHolderLayoutNP"
+				android:text="Players"
+				android:layout_centerVertical="true"
+				android:textSize="20sp"
+				android:paddingLeft="20dp"
+				android:textColor="@android:color/white"/>
+		</RelativeLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/lightGray"/>
+
+	</android.support.v7.widget.Toolbar>
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:padding="10dp"
+		android:orientation="vertical">
+
+		<TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Enter the player name or nickname:"/>
+
+		<EditText
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/newPlayerNameEditText"/>
+
+		<Button
+		    android:id="@+id/newPlayerSaveButton"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Save"/>
+
+	</LinearLayout>
+
+
+
+
+
+</LinearLayout>

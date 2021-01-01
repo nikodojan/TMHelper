@@ -8,58 +8,66 @@ using Android.Content;
 using Android.Support.V7.Widget;
 using TMHelper.Activities;
 using TMHelper.Adapters;
-using TMHelper.MockData;
 using TMHelper.Models;
+using Android.Support.Design.Widget;
+using Android.Support.V4.View;
+using TMHelper.Fragments;
 
 namespace TMHelper
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false)]
-    public class MainActivity : AppCompatActivity
+    public class MainActivity : Android.Support.V4.App.FragmentActivity
     {
-
-        private RecyclerView historyRecyclerView;
-        private HistoryAdapter historyAdapter;
-        private MockGameRepo repo;
-        private List<Game> gameList;
+        private BottomNavigationView _bottomNavigation;
+        private ViewPager _viewPager;
+        private Android.Support.V4.App.Fragment[] _fragments;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
+            InitializeFragments();
+            ViewPagerAdapter adapter = new ViewPagerAdapter(SupportFragmentManager, _fragments);
+            _viewPager = (ViewPager)FindViewById(Resource.Id.viewPager1);
+            _viewPager.Adapter = adapter;
 
-            // View setups
-            historyRecyclerView = (RecyclerView) FindViewById(Resource.Id.historyRecyclerView);
-            repo = MockGameRepo.Instance;
-            gameList = repo.GameList;
-            SetupRecyclerView();
+            //Views
+            _bottomNavigation = (BottomNavigationView)FindViewById(Resource.Id.bottom_navigation);
 
-            //Click Event Handler
-
+            _bottomNavigation.NavigationItemSelected += NavigationView_NavigationItemSelected;
+            _viewPager.PageSelected += ViewPager_PageSelected;
         }
-        
-        public void SetupRecyclerView()
+
+        private void ViewPager_PageSelected(object sender, ViewPager.PageSelectedEventArgs e)
         {
-            historyRecyclerView.SetLayoutManager(new LinearLayoutManager(historyRecyclerView.Context));
-            historyAdapter = new HistoryAdapter(gameList);
-            historyAdapter.ItemClick += HistoryAdapter_ItemClick;
-            historyAdapter.ItemLongClick += HistoryAdapter_ItemLongClick;
-
-            historyRecyclerView.SetAdapter(historyAdapter);
+            var item = _bottomNavigation.Menu.GetItem(e.Position);
+            _bottomNavigation.SelectedItemId = item.ItemId;
         }
 
-        private void HistoryAdapter_ItemLongClick(object sender, HistoryAdapterClickEventArgs e)
+        void NavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
         {
-            Toast.MakeText(this, "Game was held", ToastLength.Short).Show();
+            _viewPager.SetCurrentItem(e.Item.Order, true);
         }
 
-        private void HistoryAdapter_ItemClick(object sender, HistoryAdapterClickEventArgs e)
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
-            Toast.MakeText(this, "Game was clicked", ToastLength.Short).Show();
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
-        
+        void InitializeFragments()
+        {
+            _fragments = new Android.Support.V4.App.Fragment[]
+            {
+                new MainFragment(), new HistoryFragment(), new PlayersFragment()
+            };
+
+        }
+
     }
 }
