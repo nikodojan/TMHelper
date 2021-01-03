@@ -1,66 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginRight="5dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="7dp"
     android:elevation="4px"
-    android:background="@drawable/custom_borders">
+    android:paddingHorizontal="13dp"
+    android:paddingVertical="8dp"
+    android:background="@drawable/custom_borders"
+    android:backgroundTint="@color/darkerOrange">
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp">
+		android:layout_weight="0.9">
 
         <TextView
             android:id="@+id/gameDateTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:text="21.12.20"
-            android:paddingLeft="10dp"
-            android:paddingTop="4dp"/>
+            android:textColor="@android:color/white"
+            android:text="21.12.20"/>
 
         <LinearLayout
             android:id="@+id/allPlayersLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingTop="4dp"
             android:layout_toRightOf="@+id/gameDateTextView">
 
             <TextView
                 android:id="@+id/allPlayersTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:text="Niko, Freja, Player"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/black"/>
+                android:paddingLeft="10dp"
+                android:textColor="@android:color/white"
+                android:text="Niko, Freja, Player"
+                />
 
         </LinearLayout>
+
+        <LinearLayout
+			android:id="@+id/deviderHR"
+	        android:layout_width="match_parent"
+	        android:layout_height="1dp"
+	        android:layout_marginVertical="4dp"
+			
+	        android:background="@android:color/white"
+	        android:layout_below="@+id/allPlayersLinearLayout"/>
 
         <TextView
             android:id="@+id/winnerTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold"
             android:layout_toRightOf="@+id/gameDateTextView"
-            android:layout_below="@+id/allPlayersLinearLayout"
+            android:layout_below="@+id/deviderHR"
             android:text="Player, 121"/>
-
     </RelativeLayout>
 
+	<LinearLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="0.1"
+		android:gravity="right"
+		android:layout_marginLeft="8dp"
+	>
+		<ImageView
+			android:src="@drawable/edit_24"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/imageView1"
+			android:layout_gravity="center_vertical|right"
+		/>
+	</LinearLayout>
 </LinearLayout>

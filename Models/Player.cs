@@ -14,14 +14,13 @@ namespace TMHelper.Models
     class Player
     {
         private string _fullName;
-        private bool _deleteable;
         public int _gamesPlayed;
         private int _gamesWon;
         private int _maxScore;
 
         public Player()
         {
-            _deleteable = true;
+            
         }
 
         public string FullName

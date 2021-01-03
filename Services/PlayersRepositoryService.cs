@@ -16,17 +16,45 @@ namespace TMHelper.Services
     class PlayersRepositoryService : IPlayerReposiroty
     {
         private static PlayersRepositoryService _instance;
-
         private static List<Player> _registeredPlayers;
+        private IGameRespository gameRepo;
+
+        private ISharedPreferences playerPreferences =
+            Application.Context.GetSharedPreferences("players", FileCreationMode.Private);
+
+        private ISharedPreferencesEditor editor;
 
         private PlayersRepositoryService()
         {
-            _registeredPlayers = new List<Player>();
+            gameRepo = GameRepositoryService.Instance;
+            editor = playerPreferences.Edit();
 
-            _registeredPlayers.Add(new Player() { FullName = "Niko", GamesPlayed = 10, GamesWon = 5, MaxScore = 110 });
-            _registeredPlayers.Add(new Player() { FullName = "Freja", GamesPlayed = 10, GamesWon = 5, MaxScore = 121 });
-            _registeredPlayers.Add(new Player() { FullName = "Hans" });
-            _registeredPlayers.Add(new Player() { FullName = "Thomas" });
+            _registeredPlayers = LoadData();
+
+            //_registeredPlayers = new List<Player>();
+
+            //_registeredPlayers.Add(new Player() { FullName = "Niko" });
+            //_registeredPlayers.Add(new Player() { FullName = "Freja" });
+            //_registeredPlayers.Add(new Player() { FullName = "Hans" });
+            //_registeredPlayers.Add(new Player() { FullName = "Thomas" });
+        }
+
+        private List<Player> LoadData()
+        {
+            List<Player> newPlayerList = new List<Player>();
+            string playersJsonString = playerPreferences.GetString("players", "");
+            if (!string.IsNullOrEmpty(playersJsonString))
+            {
+                newPlayerList = JsonConvert.DeserializeObject<List<Player>>(playersJsonString);
+            }
+            return newPlayerList;
+        }
+
+        private void WriteData(List<Player> newPlayerList)
+        {
+            string playersString = JsonConvert.SerializeObject(newPlayerList);
+            editor.PutString("players", playersString);
+            editor.Apply();
         }
 
         public static PlayersRepositoryService Instance
@@ -77,6 +105,103 @@ namespace TMHelper.Services
         {
             Player newPlayer = new Player() { FullName = name };
             _registeredPlayers.Add(newPlayer);
+            WriteData(_registeredPlayers);
+        }
+
+        public void SetPlayerStatistic()
+        {
+            SetGamesPlayed();
+            SetGamesWon();
+            SetMaxScore();
+        }
+
+        public void SetGamesWon()
+        {
+            foreach (var player in _registeredPlayers)
+            {
+                player.GamesWon = 0;
+                foreach (var game in gameRepo.GetAllGames())
+                {
+                    foreach (var w in game.Winner())
+                    {
+                        if (player.FullName == w)
+                        {
+                            player.GamesWon++;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SetGamesPlayed()
+        {
+            foreach (var player in _registeredPlayers)
+            {
+                player.GamesPlayed = 0;
+                foreach (var game in gameRepo.GetAllGames())
+                {
+                    foreach (var n in game.Players())
+                    {
+                        if (player.FullName == n)
+                        {
+                            player.GamesPlayed++;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SetMaxScore()
+        {
+            foreach (var player in _registeredPlayers)
+            {
+                player.MaxScore = 0;
+                List<int> allScores = new List<int>();
+                foreach (var game in gameRepo.GetAllGames())
+                {
+                    foreach (var corp in game.Corporations)
+                    {
+                        if (player.FullName == corp.PlayerName)
+                        {
+                            allScores.Add(corp.TotalPoints);
+                        }
+                    }
+                }
+                player.MaxScore = (allScores.Count > 0) ? allScores.Max() : 0 ;
+            }
+        }
+
+        public void DeletePLayer(string name)
+        {
+            if (_registeredPlayers.Count > 0)
+            {
+                foreach (var p in _registeredPlayers)
+                {
+                    if (p.FullName == name)
+                    {
+                        _registeredPlayers.Remove(p);
+                        WriteData(_registeredPlayers);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public bool EditName(string oldName, string newName)
+        {
+            if (!string.IsNullOrEmpty(newName) && !PlayerExists(newName))
+            {
+                foreach (var player in _registeredPlayers)
+                {
+                    if (player.FullName == oldName)
+                    {
+                        player.FullName = newName;
+                        return true;
+                    }
+                }
+            }
+            WriteData(_registeredPlayers);
+            return false;
         }
 
 

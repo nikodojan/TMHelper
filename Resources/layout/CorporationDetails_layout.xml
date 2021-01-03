@@ -17,7 +17,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="56dp"
 		android:elevation="4dp"
-		android:background="@android:color/black">
+		android:background="@color/darkerOrange">
 
 		<RelativeLayout
 			android:id="@+id/toolbarRelativeLayoutNC"
@@ -63,30 +63,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 		android:orientation="vertical"
-		android:padding="30dp">
+		android:padding="13dp">
+
+		<TextView
+			android:id="@+id/titleTextCD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+			android:text="Add a new corporation"
+			android:textSize="18sp"
+			android:textAlignment="center"/>
 
 		<!--Player name-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textSize="18sp"
-                        android:gravity="left"
-                        android:layout_weight="0.4"
-                        android:text="Player"/>
-                    <Spinner
-                        android:id="@+id/playerNameSpinner"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:layout_weight="0.6"/>
-                </LinearLayout>
+        <LinearLayout
+			android:id="@+id/playerNameLayoutCD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+	        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:gravity="left"
+                android:layout_weight="0.4"
+                android:text="Player"/>
+
+			<fr.ganfra.materialspinner.MaterialSpinner
+				android:id="@+id/playerNameSpinner"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:layout_weight="0.6"/>
+
+        </LinearLayout>
+
 
 		<!--Terraforming Rate-->
 
@@ -332,7 +345,6 @@
 				android:maxLength="3"/>
 		</LinearLayout>
 
-
 		<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -342,19 +354,16 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:text="Total points: "
-				android:textSize="18sp"/>
+				android:textSize="18sp"
+				android:layout_marginBottom="86dp"/>
 			<TextView
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:id="@+id/totalPointsView"
 				android:textSize="24sp"/>
-
 		</LinearLayout>
-
-
-
-	</LinearLayout>
-	</ScrollView>
+			</LinearLayout>
+		</ScrollView>
 	</LinearLayout>
 
 	<android.support.design.widget.FloatingActionButton
@@ -364,7 +373,15 @@
         
 		android:layout_margin="16dp"
 		android:layout_gravity="bottom|end"
-		app:srcCompat="@drawable/save_24"
-	/>
+		app:srcCompat="@drawable/save_24"/>
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/deleteCorporationFab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:layout_gravity="bottom|start"
+		android:backgroundTint="@android:color/holo_red_light"
+		app:srcCompat="@drawable/delete_24"/>
 
 </android.support.design.widget.CoordinatorLayout>

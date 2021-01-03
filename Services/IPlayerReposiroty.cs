@@ -22,6 +22,10 @@ namespace TMHelper.Services
         public List<string> PlayerNamesList();
 
         public bool PlayerExists(string name);
+        public void SetPlayerStatistic();
+        public void DeletePLayer(string name);
+        public bool EditName(string oldName, string newName);
+
 
 
     }

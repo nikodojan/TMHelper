@@ -27,6 +27,8 @@ namespace TMHelper.Fragments
 
         private ImageView showDetailsImageView;
 
+        private Button addGameButton;
+
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -35,6 +37,7 @@ namespace TMHelper.Fragments
         public override void OnResume()
         {
             base.OnResume();
+            recentGame = (gameRepo.GetAllGames().Count > 0) ? gameRepo.GetAllGames()[0] : new Game();
             SetupViews();
         }
 
@@ -42,28 +45,58 @@ namespace TMHelper.Fragments
         {
             View view = inflater.Inflate(Resource.Layout.mainFragment_layout, container, false);
             gameRepo = GameRepositoryService.Instance;
-            recentGame = gameRepo.GetAllGames()[0];
-            gameDateTextView = (TextView) view.FindViewById(Resource.Id.recentGameDateMF);
-            playerNamesTextView = (TextView) view.FindViewById(Resource.Id.playersViewMF);
-            winnerTextView = (TextView) view.FindViewById(Resource.Id.winnerViewMF);
-            showDetailsImageView = (ImageView) view.FindViewById(Resource.Id.detailsImageMF);
+            recentGame = (gameRepo.GetAllGames().Count > 0) ? gameRepo.GetAllGames()[0] : new Game();
+            gameDateTextView = (TextView)view.FindViewById(Resource.Id.recentGameDateMF);
+            playerNamesTextView = (TextView)view.FindViewById(Resource.Id.playersViewMF);
+            winnerTextView = (TextView)view.FindViewById(Resource.Id.winnerViewMF);
+            addGameButton = (Button) view.FindViewById(Resource.Id.addNewGameButtonMF);
+            addGameButton.Click += AddGameButton_Click;
+
+            showDetailsImageView = (ImageView)view.FindViewById(Resource.Id.detailsImageMF);
+            if (gameRepo.GetAllGames().Count < 1)
+            {
+                showDetailsImageView.Visibility = ViewStates.Invisible;
+            }
             showDetailsImageView.Click += ShowDetailsImageView_Click;
+
             SetupViews();
             return view;
         }
 
+        private void AddGameButton_Click(object sender, EventArgs e)
+        {
+            int gameId = gameRepo.AddGame();
+            Intent intent = new Intent(this.Activity, typeof(GameDetailsActivity));
+            intent.PutExtra("GameID", gameId);
+            StartActivity(intent);
+        }
+
         private void ShowDetailsImageView_Click(object sender, EventArgs e)
         {
-            Intent detailsIntent = new Intent(this.Activity, typeof(GameDetailsActivity));
-            detailsIntent.PutExtra("GameID", recentGame.GameId);
-            StartActivity(detailsIntent);
+            if (gameRepo.GetAllGames().Count > 0)
+            {
+                Intent detailsIntent = new Intent(this.Activity, typeof(GameDetailsActivity));
+                detailsIntent.PutExtra("GameID", recentGame.GameId);
+                StartActivity(detailsIntent);
+            }
+
         }
 
         private void SetupViews()
         {
-            gameDateTextView.Text = recentGame.Date;
-            playerNamesTextView.Text = recentGame.AllPlayerNames;
-            winnerTextView.Text = recentGame.WinnerNamePoints;
+            if (recentGame.Corporations.Count != 0)
+            {
+                gameDateTextView.Text = recentGame.Date;
+                playerNamesTextView.Text = recentGame.AllPlayerNames;
+                winnerTextView.Text = recentGame.WinnerNamePoints;
+            }
+            else
+            {
+                gameDateTextView.Text = (!string.IsNullOrEmpty(recentGame.Date) ? recentGame.Date : "");
+                playerNamesTextView.Text = "No corporations added yet";
+                winnerTextView.Text = "";
+            }
+
         }
 
     }

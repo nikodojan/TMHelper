@@ -63,14 +63,12 @@
   <ItemGroup>
     <Compile Include="Activities\GameDetailsActivity.cs" />
     <Compile Include="Activities\NewCorporationActivity.cs" />
-    <Compile Include="Activities\NewGameActivity.cs" />
     <Compile Include="Activities\NewPlayerActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
     <Compile Include="Adapters\CorporationsAdapter.cs" />
     <Compile Include="Adapters\HistoryAdapter.cs" />
     <Compile Include="Adapters\PlayersAdapter.cs" />
     <Compile Include="Adapters\ViewPagerAdapter.cs" />
-    <Compile Include="Fragments\NewCorporationFragment.cs" />
     <Compile Include="Fragments\PlayersFragment.cs" />
     <Compile Include="Fragments\MainFragment.cs" />
     <Compile Include="Fragments\HistoryFragment.cs" />
@@ -89,7 +87,6 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
-    <None Include="Services\players.json" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\activity_main.xml">
@@ -121,6 +118,9 @@
     <AndroidResource Include="Resources\drawable\Splash.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MaterialSpinner-Xamarin">
+      <Version>1.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
@@ -151,11 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\custom_borders.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\newCorporation_activity.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -246,6 +241,41 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\showpage_24.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\custom_borders_3.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\round_open_in_new_24.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\edit_24.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add_black.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\add_player_24_black.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\delete_24.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\CorporationDetails_layout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

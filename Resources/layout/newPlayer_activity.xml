@@ -9,7 +9,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="56dp"
 		android:elevation="4dp"
-		android:background="@android:color/black">
+		android:background="@color/darkerOrange">
 
 		<RelativeLayout
 			android:id="@+id/toolbarRelativeLayoutNP"
@@ -48,24 +48,59 @@
 	<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-		android:padding="10dp"
+		android:paddingTop="20dp"
+		android:paddingHorizontal="15dp"
 		android:orientation="vertical">
 
-		<TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="Enter the player name or nickname:"/>
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<EditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="Enter the player name or nickname"
+				android:inputType="text"
+				android:maxLines="1"
+				android:lines="1"
+				android:singleLine="true"
+				android:imeOptions="actionDone"
+				android:id="@+id/newPlayerNameEditText"/>
+		</android.support.design.widget.TextInputLayout>
 
-		<EditText
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:id="@+id/newPlayerNameEditText"/>
 
-		<Button
-		    android:id="@+id/newPlayerSaveButton"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="Save"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/deletePlayerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@android:color/white"
+                android:text="Delete"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="@android:color/holo_red_light"/>
+
+            <Button
+                android:id="@+id/newPlayerSaveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@android:color/white"
+                android:text="Save"
+                android:background="@drawable/roundedbutton"/>
+
+
+        </LinearLayout>
+
+
 
 	</LinearLayout>
 

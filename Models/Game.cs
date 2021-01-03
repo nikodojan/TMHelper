@@ -16,6 +16,13 @@ namespace TMHelper.Models
         private int _gameId;
         private string _date;
         private List<Corporation> _corporations;
+        private bool _show;
+
+        public bool Show
+        {
+            get { return _show; }
+            set { _show = value; }
+        }
 
         public int GameId
         {
@@ -43,6 +50,7 @@ namespace TMHelper.Models
         public Game()
         {
             _corporations = new List<Corporation>();
+            _show = false;
         }
 
         public List<string> Players()
@@ -97,16 +105,16 @@ namespace TMHelper.Models
         public string GetWinner()
         {
             List<string> winnerNames = Winner();
-            string names = "";
-            if (winnerNames.Count > 1)
+            string winnerString;
+            if (winnerNames.Count > 0)
             {
-                names = string.Join(", ", winnerNames);
+                string names = string.Join(", ", winnerNames);
+                winnerString = $"{names}, {MaxPoints()}";
             }
             else
             {
-                names = winnerNames[0];
+                winnerString = "";
             }
-            string winnerString = $"{names}, {MaxPoints()}";
             return winnerString;
         }
 

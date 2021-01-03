@@ -21,6 +21,11 @@ namespace TMHelper.Services
         public bool IsExistingId(int id);
 
         public bool IsExistingPlayer(int id, string name);
+        public void DeleteGame(int id);
+        public Game GetGame(int gameId);
+        public Corporation GetCorporation(int gameId, string playerName);
+        public void DeleteCorporation(int gameId, string playerName);
+        public void UpdateCorporation(int gameId, string playerName, Corporation corp);
 
 
 

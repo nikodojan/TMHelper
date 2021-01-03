@@ -15,6 +15,7 @@ using TMHelper.Adapters;
 using TMHelper.Fragments;
 using TMHelper.Models;
 using TMHelper.Services;
+using AlertDialog = Android.Support.V7.App.AlertDialog;
 
 namespace TMHelper.Activities
 {
@@ -27,6 +28,7 @@ namespace TMHelper.Activities
         private Game game;
         private List<Corporation> corpList;
         private FloatingActionButton addCorpFloatingActionButton;
+        private FloatingActionButton deleteGameActionButton;
         private int gameId;
         
         protected override void OnCreate(Bundle savedInstanceState)
@@ -51,7 +53,30 @@ namespace TMHelper.Activities
             corpList = game.Corporations;
             addCorpFloatingActionButton = (FloatingActionButton) FindViewById(Resource.Id.addCorporationFab);
             addCorpFloatingActionButton.Click += AddCorpFloatingActionButton_Click;
+            deleteGameActionButton = (FloatingActionButton) FindViewById(Resource.Id.deleteGameFab);
+            deleteGameActionButton.Click += DeleteGameActionButton_Click;
             SetupRecyclerView();
+        }
+
+        private void DeleteGameActionButton_Click(object sender, EventArgs e)
+        {
+            AlertDialog.Builder deleteAlert = new AlertDialog.Builder(this);
+            deleteAlert.SetMessage("Do you really want to delete this game?");
+            deleteAlert.SetTitle("Delete game");
+
+            deleteAlert.SetPositiveButton("Delete", (alert, args) =>
+                {
+                    repo.DeleteGame(gameId);
+                    Finish();
+                    Toast.MakeText(this, "Game was deleted.", ToastLength.Short).Show();
+                }
+            );
+
+            deleteAlert.SetNegativeButton("Cancel", (alert, args) =>
+            {
+                deleteAlert.Dispose();
+            });
+            deleteAlert.Show();
         }
 
         protected override void OnResume()
@@ -71,10 +96,18 @@ namespace TMHelper.Activities
         {
             corporationsRecyclerView.SetLayoutManager(new LinearLayoutManager(corporationsRecyclerView.Context));
             corporationsAdapter = new CorporationsAdapter(corpList);
+            corporationsAdapter.ItemClick += CorporationsAdapter_ItemClick;
             corporationsRecyclerView.SetAdapter(corporationsAdapter);
         }
 
-
-
+        private void CorporationsAdapter_ItemClick(object sender, CorporationsAdapterClickEventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(NewCorporationActivity));
+            intent.PutExtra("GameID", gameId);
+            intent.PutExtra("playerName", corpList[e.Position].PlayerName);
+            intent.PutExtra("isExisting", true);
+            
+            StartActivity(intent);
+        }
     }
 }
