@@ -16,6 +16,13 @@ namespace TMHelper.Models
         private int _gameId;
         private string _date;
         private List<Corporation> _corporations;
+        private bool _show;
+
+        public bool Show
+        {
+            get { return _show; }
+            set { _show = value; }
+        }
 
         public int GameId
         {
@@ -42,53 +49,72 @@ namespace TMHelper.Models
 
         public Game()
         {
-            _date = DateTime.Now.ToString("dd / MM / yy");
             _corporations = new List<Corporation>();
+            _show = false;
+        }
 
+        public List<string> Players()
+        {
+            List<string> playerNames = new List<string>();
+            foreach (var c in _corporations)
+            {
+                playerNames.Add(c.PlayerName);
+            }
+            return playerNames;
         }
 
         public string GetAllPlayerNames()
         {
-            List<string> names = new List<string>();
-            foreach (var c in _corporations)
+            List<string> names = Players();
+            if (names.Count == 0)
             {
-                names.Add(c.PlayerName);
+                return "No participants";
             }
-
             string namesString = string.Join(", ", names);
             return namesString;
         }
 
-        public string GetWinner()
+        public int MaxPoints()
         {
+            if (_corporations.Count < 1)
+            {
+                return 0;
+            }
             List<int> points = new List<int>();
             foreach (var c in _corporations)
             {
                 points.Add(c.TotalPoints);
             }
-            int maxPoints = points.Max();
+            int maxPoints = (points.Count != 0) ? points.Max() : 0;
+            return maxPoints;
+        }
 
+        public List<string> Winner()
+        {
             List<string> winnerNames = new List<string>();
             foreach (var c in _corporations)
             {
-                if (c.TotalPoints == maxPoints)
+                if (c.TotalPoints == MaxPoints())
                 {
                     winnerNames.Add(c.PlayerName);
                 }
             }
+            return winnerNames;
+        }
 
-            string names = "";
-            if (winnerNames.Count > 1)
+        public string GetWinner()
+        {
+            List<string> winnerNames = Winner();
+            string winnerString;
+            if (winnerNames.Count > 0)
             {
-                names = string.Join(", ", winnerNames);
+                string names = string.Join(", ", winnerNames);
+                winnerString = $"{names}, {MaxPoints()}";
             }
             else
             {
-                names = winnerNames[0];
+                winnerString = "";
             }
-
-            string winnerString = $"{names}, {maxPoints}";
-
             return winnerString;
         }
 

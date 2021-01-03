@@ -6,11 +6,11 @@
 		<layer-list>
 			<item>
 				<shape>
-					<gradient android:angle="270" android:startColor="@android:color/black" android:endColor="@android:color/black"/>
-					<stroke android:width="0dp" android:color="@android:color/black"/>
+					<gradient android:angle="270" android:startColor="@color/darkerOrange" android:endColor="@color/darkerOrange"/>
 					<corners android:radius="25dp"/>
 				</shape>
 			</item>
+
 		</layer-list>
 	</item>
 
@@ -18,8 +18,8 @@
 		<layer-list>
 			<item>
 				<shape>
-					<gradient android:angle="270" android:startColor="@android:color/darker_gray" android:endColor="@android:color/darker_gray"/>
-					<stroke android:width="0dp" android:color="@android:color/black"/>
+					<gradient android:angle="270" android:startColor="@android:color/white" android:endColor="@android:color/white"/>
+					<stroke android:width="0dp" android:color="@color/darkerOrange"/>
 					<corners android:radius="25dp"/>
 				</shape>
 			</item>

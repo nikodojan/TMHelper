@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#1B3147</color>
     <color name="colorAccent">#3498db</color>
 	<color name="lightGray">#bebebe</color>
+	<!--<color name="darkerOrange">#ff5600</color>-->
+	<color name="darkerOrange">#ff7c39</color>
+	<color name="historyBlue">#5E86AF</color>
+	<color name="darkDarkGray">#545454</color>
 </resources>

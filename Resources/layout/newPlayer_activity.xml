@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbarNP"
+		android:layout_width="match_parent"
+		android:layout_height="56dp"
+		android:elevation="4dp"
+		android:background="@color/darkerOrange">
+
+		<RelativeLayout
+			android:id="@+id/toolbarRelativeLayoutNP"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal"
+		>
+
+			<LinearLayout
+				android:id="@+id/imageHolderLayoutNP"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:orientation="vertical"
+				android:background="@drawable/add_player_24">
+			</LinearLayout>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@+id/imageHolderLayoutNP"
+				android:text="Players"
+				android:layout_centerVertical="true"
+				android:textSize="20sp"
+				android:paddingLeft="20dp"
+				android:textColor="@android:color/white"/>
+		</RelativeLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="1dp"
+			android:background="@color/lightGray"/>
+
+	</android.support.v7.widget.Toolbar>
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:paddingTop="20dp"
+		android:paddingHorizontal="15dp"
+		android:orientation="vertical">
+
+		<android.support.design.widget.TextInputLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+			<EditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:hint="Enter the player name or nickname"
+				android:inputType="text"
+				android:maxLines="1"
+				android:lines="1"
+				android:singleLine="true"
+				android:imeOptions="actionDone"
+				android:id="@+id/newPlayerNameEditText"/>
+		</android.support.design.widget.TextInputLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/deletePlayerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@android:color/white"
+                android:text="Delete"
+                android:background="@drawable/roundedbutton"
+                android:backgroundTint="@android:color/holo_red_light"/>
+
+            <Button
+                android:id="@+id/newPlayerSaveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:textColor="@android:color/white"
+                android:text="Save"
+                android:background="@drawable/roundedbutton"/>
+
+
+        </LinearLayout>
+
+
+
+	</LinearLayout>
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="@drawable/background_main_2"
+    android:paddingHorizontal="15dp">
+
+	<TextView
+		android:id="@+id/mainTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terraformin Mars"
+		android:textSize="30sp"
+		android:textStyle="bold"
+		android:textColor="@android:color/white"
+		android:textAlignment="center"
+		android:layout_marginTop="20dp"/>
+    <TextView
+		android:id="@+id/mainSubtitleTextView"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Helper App"
+		android:textSize="24sp"
+		android:textColor="@android:color/white"
+		android:textAlignment="center"/>
+    <TextView
+        android:text="Most recent game:"
+		android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="50dp"/>
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mostRecentGameRL"
+        android:background="@drawable/custom_borders_3"
+        android:paddingLeft="15dp"
+		android:paddingRight="24dp"
+		android:paddingVertical="8dp">
+	    <TextView
+            android:text="21.12.20"
+			android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recentGameDateMF"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="1dp"/>
+	    <TextView
+            android:text="Players: "
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/playersLabelMF"
+            android:layout_below="@+id/recentGameDateMF"
+            android:layout_marginBottom="1dp"/>
+        <TextView
+	        android:text="Player names "
+	        android:textSize="16sp"
+	        android:textColor="@android:color/white"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/playersViewMF"
+	        android:layout_toRightOf="@+id/playersLabelMF"
+			android:layout_below="@+id/recentGameDateMF"
+	        android:layout_marginBottom="1dp"/>
+        <TextView
+	        android:text="Winner: "
+	        android:textSize="16sp"
+	        android:textColor="@android:color/white"
+	        android:layout_width="70dp"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/winnerLabelMF"
+	        android:layout_below="@+id/playersViewMF"/>
+        <TextView
+	        android:text="Winner name "
+	        android:textSize="16sp"
+	        android:textColor="@android:color/white"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:id="@+id/winnerViewMF"
+	        android:layout_toRightOf="@+id/winnerLabelMF"
+	        android:layout_below="@+id/playersViewMF"/>
+
+	    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/showGameLayoutMF"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content"
+			android:layout_marginLeft="24dp">
+            <ImageView
+                android:background="@drawable/round_open_in_new_24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:id="@+id/detailsImageMF"
+                android:layout_toRightOf="@+id/playersViewMF"
+                android:layout_below="@+id/recentGameDateMF"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal|center"
+        android:layout_gravity="center_horizontal|center">
+
+        <Button
+            android:text="Add new game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:id="@+id/addNewGameButtonMF"
+            android:background="@drawable/roundedButton"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:text="About"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="30dp"
+            android:id="@+id/aboutButtonMF"
+            android:background="@drawable/roundedButton"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/addNewGameButtonMF"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="false" 
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

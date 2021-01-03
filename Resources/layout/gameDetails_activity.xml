@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	>
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarGD"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:elevation="4dp"
+            android:background="@color/darkerOrange">
+
+            <RelativeLayout
+                android:id="@+id/toolbarRelativeLayoutGD"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+		>
+
+                <LinearLayout
+                    android:id="@+id/imageHolderLayoutGD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:background="@drawable/corporation_24">
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imageHolderLayoutGD"
+                    android:text="Corporations"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"
+                    android:paddingLeft="20dp"
+                    android:textColor="@android:color/white"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightGray"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/corporationsRecyclerView"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+			android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:text="Legend:"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/legendLabelGD" />
+
+	        <TextView
+            android:text="@string/legend"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/legendTextViewGD" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+	
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/addCorporationFab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        
+		android:layout_margin="16dp"
+		android:layout_gravity="bottom|end"
+		app:srcCompat="@drawable/add"
+	/>
+
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/deleteGameFab"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_margin="16dp"
+		android:layout_gravity="bottom|start"
+		android:backgroundTint="@android:color/holo_red_light"
+		app:srcCompat="@drawable/delete_24"
+	/>
+
+</android.support.design.widget.CoordinatorLayout>
