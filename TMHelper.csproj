@@ -61,6 +61,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AboutActivity.cs" />
     <Compile Include="Activities\GameDetailsActivity.cs" />
     <Compile Include="Activities\NewCorporationActivity.cs" />
     <Compile Include="Activities\NewPlayerActivity.cs" />
@@ -274,6 +275,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CorporationDetails_layout.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\aboutActivity_layout.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -30,6 +30,7 @@ namespace TMHelper.Activities
         private FloatingActionButton addCorpFloatingActionButton;
         private FloatingActionButton deleteGameActionButton;
         private int gameId;
+        private TextView gameTitleTextView;
         
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -55,6 +56,8 @@ namespace TMHelper.Activities
             addCorpFloatingActionButton.Click += AddCorpFloatingActionButton_Click;
             deleteGameActionButton = (FloatingActionButton) FindViewById(Resource.Id.deleteGameFab);
             deleteGameActionButton.Click += DeleteGameActionButton_Click;
+            gameTitleTextView = (TextView) FindViewById(Resource.Id.titleTextGD);
+            gameTitleTextView.Text = $"Game of {game.Date}";
             SetupRecyclerView();
         }
 
@@ -87,9 +90,16 @@ namespace TMHelper.Activities
 
         private void AddCorpFloatingActionButton_Click(object sender, EventArgs e)
         {
-            Intent intent = new Intent(this, typeof(NewCorporationActivity));
-            intent.PutExtra("gameId", gameId);
-            StartActivity(intent);
+            if (game.Corporations.Count < 6)
+            {
+                Intent intent = new Intent(this, typeof(NewCorporationActivity));
+                intent.PutExtra("gameId", gameId);
+                StartActivity(intent);
+            }
+            else
+            {
+                Toast.MakeText(this, "The maximal number of players of 5 is already reached.", ToastLength.Long).Show();
+            }
         }
 
         public void SetupRecyclerView()
@@ -106,7 +116,6 @@ namespace TMHelper.Activities
             intent.PutExtra("GameID", gameId);
             intent.PutExtra("playerName", corpList[e.Position].PlayerName);
             intent.PutExtra("isExisting", true);
-            
             StartActivity(intent);
         }
     }

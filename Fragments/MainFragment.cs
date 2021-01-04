@@ -28,6 +28,7 @@ namespace TMHelper.Fragments
         private ImageView showDetailsImageView;
 
         private Button addGameButton;
+        private Button aboutButton;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -60,7 +61,17 @@ namespace TMHelper.Fragments
             showDetailsImageView.Click += ShowDetailsImageView_Click;
 
             SetupViews();
+
+            aboutButton = (Button) view.FindViewById(Resource.Id.aboutButtonMF);
+            aboutButton.Click += AboutButton_Click;
+
             return view;
+        }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            Intent aboutIntent = new Intent(this.Activity, typeof(AboutActivity));
+            StartActivity(aboutIntent);
         }
 
         private void AddGameButton_Click(object sender, EventArgs e)
