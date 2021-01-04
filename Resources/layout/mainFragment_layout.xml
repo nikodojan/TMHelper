@@ -133,7 +133,7 @@
             android:id="@+id/aboutButtonMF"
             android:background="@drawable/roundedButton"
             android:textColor="@android:color/white"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/addNewGameButtonMF"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="false" 

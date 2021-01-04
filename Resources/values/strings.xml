@@ -3,4 +3,17 @@
     <string name="action_settings">Settings</string>
 	<string name="legend">Points for: TR - Terraforming Rate, MS - Milestones, AW - Awards, GR - Greeneries, CT - Cities, CD - Cards.</string>
 	<string name="history_title">Tap a game to show details</string>
+	<string name="aboutApp">
+		The Terraforming Mars Helper App helps TM players to calculate their final score and store the scores of played games.
+		The App is free and users are free to share it.
+	</string>
+	<string name="aboutMaking">
+		This app was created using Xamarin (C#, XML).
+		The icons used in the app are downloaded from material.io.
+		The mars image in the app icon and background image are downloaded from pixabay.com. Thanks to OpenClipart-Vectors and Pexels on Pixabay.
+		The code can be reviewed on github:
+	</string>
+	<string name="version">
+		(V.1.0 - 04.01.2021)
+	</string>
 </resources>
