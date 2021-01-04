@@ -13,7 +13,7 @@
 		The mars image in the app icon and background image are downloaded from pixabay.com. Thanks to OpenClipart-Vectors and Pexels on Pixabay.
 		The code can be reviewed on github:
 	</string>
-	<string name="githubLink">
-		https://github.com/dojo85/TMHelper
+	<string name="version">
+		(V.1.0 - 04.01.2021)
 	</string>
 </resources>

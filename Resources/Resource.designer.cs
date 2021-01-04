@@ -4252,28 +4252,31 @@ namespace TMHelper
 			public const int useLogo = 2131231000;
 			
 			// aapt resource value: 0x7F080119
-			public const int viewPager1 = 2131231001;
+			public const int versionTextView = 2131231001;
 			
 			// aapt resource value: 0x7F08011A
-			public const int view_offset_helper = 2131231002;
+			public const int viewPager1 = 2131231002;
 			
 			// aapt resource value: 0x7F08011B
-			public const int visible = 2131231003;
+			public const int view_offset_helper = 2131231003;
 			
 			// aapt resource value: 0x7F08011C
-			public const int winnerLabelMF = 2131231004;
+			public const int visible = 2131231004;
 			
 			// aapt resource value: 0x7F08011D
-			public const int winnerTextView = 2131231005;
+			public const int winnerLabelMF = 2131231005;
 			
 			// aapt resource value: 0x7F08011E
-			public const int winnerViewMF = 2131231006;
+			public const int winnerTextView = 2131231006;
 			
 			// aapt resource value: 0x7F08011F
-			public const int withText = 2131231007;
+			public const int winnerViewMF = 2131231007;
 			
 			// aapt resource value: 0x7F080120
-			public const int wrap_content = 2131231008;
+			public const int withText = 2131231008;
+			
+			// aapt resource value: 0x7F080121
+			public const int wrap_content = 2131231009;
 			
 			static Id()
 			{
@@ -4801,40 +4804,40 @@ namespace TMHelper
 			public const int fab_transformation_sheet_behavior = 2131623984;
 			
 			// aapt resource value: 0x7F0E0031
-			public const int githubLink = 2131623985;
+			public const int hide_bottom_view_on_scroll_behavior = 2131623985;
 			
 			// aapt resource value: 0x7F0E0032
-			public const int hide_bottom_view_on_scroll_behavior = 2131623986;
+			public const int history_title = 2131623986;
 			
 			// aapt resource value: 0x7F0E0033
-			public const int history_title = 2131623987;
+			public const int legend = 2131623987;
 			
 			// aapt resource value: 0x7F0E0034
-			public const int legend = 2131623988;
+			public const int mtrl_chip_close_icon_content_description = 2131623988;
 			
 			// aapt resource value: 0x7F0E0035
-			public const int mtrl_chip_close_icon_content_description = 2131623989;
+			public const int password_toggle_content_description = 2131623989;
 			
 			// aapt resource value: 0x7F0E0036
-			public const int password_toggle_content_description = 2131623990;
+			public const int path_password_eye = 2131623990;
 			
 			// aapt resource value: 0x7F0E0037
-			public const int path_password_eye = 2131623991;
+			public const int path_password_eye_mask_strike_through = 2131623991;
 			
 			// aapt resource value: 0x7F0E0038
-			public const int path_password_eye_mask_strike_through = 2131623992;
+			public const int path_password_eye_mask_visible = 2131623992;
 			
 			// aapt resource value: 0x7F0E0039
-			public const int path_password_eye_mask_visible = 2131623993;
+			public const int path_password_strike_through = 2131623993;
 			
 			// aapt resource value: 0x7F0E003A
-			public const int path_password_strike_through = 2131623994;
+			public const int search_menu_title = 2131623994;
 			
 			// aapt resource value: 0x7F0E003B
-			public const int search_menu_title = 2131623995;
+			public const int status_bar_notification_info_overflow = 2131623995;
 			
 			// aapt resource value: 0x7F0E003C
-			public const int status_bar_notification_info_overflow = 2131623996;
+			public const int version = 2131623996;
 			
 			static String()
 			{

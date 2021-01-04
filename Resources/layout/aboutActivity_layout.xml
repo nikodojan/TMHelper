@@ -8,21 +8,34 @@
     
 	<TextView
         android:text="Terraforming Mars Helper App"
-        android:textSize="18dp"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="25px"
         android:minHeight="25px"
 		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="30dp"
+
         android:id="@+id/AboutTitleTextView" 
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:layout_marginTop="17dp"/>
+    <TextView
+        android:text="@string/version"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AboutTitleTextView"
+        android:id="@+id/versionTextView"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"/>
+
+
     <TextView
         android:text="About the app:"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_below="@+id/AboutTitleTextView"
+        android:layout_marginTop="30dp"
+		android:layout_below="@+id/versionTextView"
         android:id="@+id/AboutAppTitleTextView"
         android:textColor="@android:color/white"/>
     <TextView
@@ -51,14 +64,14 @@
 		android:id="@+id/AboutMakingTextView"
 		android:textColor="@android:color/white"/>
     <TextView
-        android:text="@string/githubLink"
+        
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/AboutMakingTextView"
         android:id="@+id/AboutGithubLink"
         android:textColor="@android:color/white"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"/>
     <Button
         android:text="Close"
