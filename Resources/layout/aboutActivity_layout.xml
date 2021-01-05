@@ -5,8 +5,17 @@
     android:layout_height="match_parent"
     android:padding="13dp"
     android:background="@android:color/black">
-    
-	<TextView
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scrollbars="vertical">
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<TextView
         android:text="Terraforming Mars Helper App"
         android:textSize="20sp"
         android:layout_width="wrap_content"
@@ -73,22 +82,35 @@
         android:textColor="@android:color/white"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"/>
+	<TextView
+		android:text="Privacy:"
+		android:layout_marginTop="10dp"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/AboutGithubLink"
+		android:id="@+id/AboutPrivacyLabel"
+		android:textColor="@android:color/white"/>
+	<TextView
+		android:text="@string/privacy"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/AboutPrivacyLabel"
+		android:id="@+id/AboutPrivacyText"
+		android:textColor="@android:color/white"
+		android:layout_centerHorizontal="true"/>
     <Button
         android:text="Close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/closeButton" 
         android:background="@drawable/roundedButton"
-        android:layout_below="@id/AboutGithubLink"
+        android:layout_below="@+id/AboutPrivacyText"
 		android:layout_marginTop="30dp"
 		android:layout_centerHorizontal="true"/>
-
-
-
+            
+        </RelativeLayout>
+    </ScrollView>
     
-
-
-
-
-
 </RelativeLayout>

@@ -16,4 +16,7 @@
 	<string name="version">
 		(V.1.0 - 04.01.2021)
 	</string>
+	<string name="privacy">
+		This app does not collect any user data except for the game data which is entered by the user. The data is stored internally in the app. This app will never establish a network connection nor send any data.
+	</string>
 </resources>
