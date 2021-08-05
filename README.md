@@ -8,5 +8,7 @@ The Terraforming Mars Helper App helps TM players to calculate their final score
 The icons used in the app are downloaded from material.io.
 The mars image in the app icon and background image are downloaded from pixabay.com. Thanks to OpenClipart-Vectors and Pexels on Pixabay.
 
+Play market link: https://play.google.com/store/apps/details?id=com.nikod.tmhelper
+
 
 
