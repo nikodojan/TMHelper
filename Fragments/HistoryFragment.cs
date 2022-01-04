@@ -25,7 +25,6 @@ namespace TMHelper.Fragments
         private HistoryAdapter historyAdapter;
         private IGameRespository repo;
         private List<Game> gameList;
-
         private FloatingActionButton addGameButton;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -64,21 +63,13 @@ namespace TMHelper.Fragments
             historyRecyclerView.SetLayoutManager(new LinearLayoutManager(historyRecyclerView.Context));
             historyAdapter = new HistoryAdapter(gameList);
             historyAdapter.ItemClick += HistoryAdapter_ItemClick;
-            //historyAdapter.ItemLongClick += HistoryAdapter_ItemLongClick;
-
             historyRecyclerView.SetAdapter(historyAdapter);
         }
-
-        //private void HistoryAdapter_ItemLongClick(object sender, HistoryAdapterClickEventArgs e)
-        //{
-            
-        //}
 
         private void HistoryAdapter_ItemClick(object sender, HistoryAdapterClickEventArgs e)
         {
             var game = gameList[e.Position];
             int id = game.GameId;
-
             Intent intent = new Intent(this.Activity, typeof(GameDetailsActivity));
             intent.PutExtra("GameID", id);
             StartActivity(intent);

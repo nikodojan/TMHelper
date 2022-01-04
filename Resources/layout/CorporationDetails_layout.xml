@@ -210,11 +210,11 @@
 		</LinearLayout>
 		
 		<!--Awards-->
+
 		<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:layout_marginTop="20dp">
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
 			<TextView
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
@@ -222,56 +222,16 @@
 				android:layout_weight="0.7"
 				android:gravity="left"
 				android:textSize="18sp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center">
-
-                    <RadioButton
-	                    android:id="@+id/aw0pointsRadio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="false"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0" />
-                </LinearLayout>
-			<LinearLayout
-				android:layout_width="wrap_content"
+			<EditText
+				android:id="@+id/awardsEntry"
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				android:gravity="center">
-
-				<RadioButton
-					android:id="@+id/aw2pointsRadio"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:checked="false"/>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="2" />
-			</LinearLayout>
-			<LinearLayout
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				android:gravity="center">
-
-				<RadioButton
-					android:id="@+id/aw5pointsRadio"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:checked="false"/>
-				<TextView
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="5"
-					android:gravity="center|center_horizontal" />
-			</LinearLayout>
+				android:layout_weight="0.3"
+				android:inputType="number"
+				android:imeOptions="actionNext"
+				android:layout_marginRight="20dp"
+				android:layout_marginLeft="20dp"
+				android:maxLength="3"/>
 		</LinearLayout>
 
 		<!--Greeneries-->
@@ -340,7 +300,7 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="0.3"
 				android:inputType="number"
-				android:imeOptions="actionNext"
+				android:imeOptions="actionDone"
 				android:layout_marginRight="20dp"
 				android:layout_marginLeft="20dp"
 				android:maxLength="3"/>
@@ -367,6 +327,7 @@
 		</ScrollView>
 	</LinearLayout>
 
+	<!--Save button-->
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/saveCorporationFab"
 		android:layout_width="wrap_content"
@@ -375,7 +336,7 @@
 		android:layout_margin="16dp"
 		android:layout_gravity="bottom|end"
 		app:srcCompat="@drawable/save_24"/>
-
+	<!--Delete button-->
 	<android.support.design.widget.FloatingActionButton
 		android:id="@+id/deleteCorporationFab"
 		android:layout_width="wrap_content"

@@ -16,17 +16,17 @@
 			android:layout_height="match_parent">
 
 			<TextView
-        android:text="Terraforming Mars Helper App"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-		android:layout_centerHorizontal="true"
+	        android:text="Terraforming Mars Helper App"
+	        android:textSize="20sp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:minWidth="25px"
+	        android:minHeight="25px"
+			android:layout_centerHorizontal="true"
 
-        android:id="@+id/AboutTitleTextView" 
-        android:textColor="@android:color/white"
-        android:layout_marginTop="17dp"/>
+	        android:id="@+id/AboutTitleTextView" 
+	        android:textColor="@android:color/white"
+	        android:layout_marginTop="17dp"/>
     <TextView
         android:text="@string/version"
         android:textSize="10sp"
@@ -43,7 +43,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
 		android:layout_below="@+id/versionTextView"
         android:id="@+id/AboutAppTitleTextView"
         android:textColor="@android:color/white"/>
@@ -109,6 +109,25 @@
         android:layout_below="@+id/AboutPrivacyText"
 		android:layout_marginTop="30dp"
 		android:layout_centerHorizontal="true"/>
+
+			<TextView
+				android:text="Version notes:"
+				android:layout_marginTop="20dp"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/closeButton"
+				android:id="@+id/AboutVersionNotesLabel"
+				android:textColor="@android:color/white"/>
+			<TextView
+				android:text="@string/version_notes"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/AboutVersionNotesLabel"
+				android:id="@+id/AboutVersionNotesText"
+				android:textColor="@android:color/white"
+				android:layout_centerHorizontal="true"/>
             
         </RelativeLayout>
     </ScrollView>
