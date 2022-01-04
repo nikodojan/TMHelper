@@ -8,12 +8,16 @@
 		The App is free and users are free to share it.
 	</string>
 	<string name="aboutMaking">
-		This app was created using Xamarin (C#, XML).
-		The icons used in the app are downloaded from material.io.
-		The mars image in the app icon and background image are downloaded from pixabay.com. Thanks to OpenClipart-Vectors and Pexels on Pixabay.
-		The code can be reviewed on github:
+		This app was created using Xamarin (C#, XML).\nThe icons used in the app are downloaded from material.io.
+		The mars image in the app icon and background image are downloaded from pixabay.com. Thanks to OpenClipart-Vectors and Pexels on Pixabay.\nThe code can be reviewed on github:
 	</string>
 	<string name="version">
-		(V.1.0 - 04.01.2021)
+		(V.1.2 - 14.01.2021)
+	</string>
+	<string name="privacy">
+		This app does not collect any user data except for the game data which is entered by the user. The data is stored internally in the app. This app will never establish a network connection nor send any data.
+	</string>
+	<string name="version_notes">
+		Version 1.2:\n- Provisional fix of the award scoring problem: In the last version each player could score either 0, 2 or 5 award points once, which does not comply with the game rules. You can enter the points as a number in a field instead of checking a radio button. (Thanks to the user, who pointed that out. I will also consider your suggestions at a later time.) \n- Other minor bugfixes.
 	</string>
 </resources>

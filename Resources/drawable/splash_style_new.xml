@@ -5,10 +5,10 @@
 	</item>
 	<item>
 		<bitmap
-			android:src="@drawable/splash_screen"
+			android:src="@drawable/splash_bg"
+			android:scaleType="matrix"
 			android:layout_height="fill_parent"
 			android:layout_width="fill_parent"
-			android:tileMode="disabled"
-			/>
+			android:tileMode="disabled"/>
 	</item>
 </layer-list>

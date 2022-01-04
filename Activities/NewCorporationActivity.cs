@@ -23,14 +23,12 @@ namespace TMHelper.Activities
         private EditText greeneries;
         private EditText cities;
         private EditText cards;
+        private EditText awards;
         private TextView totalPoints;
         private RadioButton ms0PointsRadioButton;
         private RadioButton ms5PointsRadioButton;
         private RadioButton ms10PointsRadioButton;
         private RadioButton ms15PointsRadioButton;
-        private RadioButton aw0PointsRadioButton;
-        private RadioButton aw2PointsRadioButton;
-        private RadioButton aw5PointsRadioButton;
         private FloatingActionButton saveButton;
         private FloatingActionButton deleteButton;
         private LinearLayout playerLayout;
@@ -80,14 +78,13 @@ namespace TMHelper.Activities
                 SetupExistingCorporationValues();
                 playerLayout.Visibility = ViewStates.Gone;
             }
-
-            
         }
 
         void SetupExistingCorporationValues()
         {
             titleTextView.Text = $"Editing {existingPlayerName}'s corporation";
             terraformingRate.Text = existingCorporation.TerraformingRate.ToString();
+            awards.Text = existingCorporation.Awards.ToString();
             greeneries.Text = existingCorporation.Greeneries.ToString();
             cities.Text = existingCorporation.Cities.ToString();
             cards.Text = existingCorporation.Cards.ToString();
@@ -112,23 +109,6 @@ namespace TMHelper.Activities
                 ms0PointsRadioButton.Checked = true;
                 milestonesPoints = 0;
             }
-
-            if (existingCorporation.Awards == 5)
-            {
-                aw5PointsRadioButton.Checked = true;
-                awardsPoints = 5;
-            }
-            else if (existingCorporation.Awards == 2)
-            {
-                aw2PointsRadioButton.Checked = true;
-                awardsPoints = 2;
-            }
-            else
-            {
-                aw0PointsRadioButton.Checked = true;
-                awardsPoints = 0;
-            }
-
         }
 
         void ConnectViews()
@@ -138,6 +118,8 @@ namespace TMHelper.Activities
 
             terraformingRate = (EditText) FindViewById(Resource.Id.terraformingRateEntry);
             terraformingRate.TextChanged += TerraformingRate_TextChanged;
+            awards = (EditText) FindViewById(Resource.Id.awardsEntry);
+            awards.TextChanged += Awards_TextChanged;
             greeneries = (EditText) FindViewById(Resource.Id.greeneriesEntry);
             greeneries.TextChanged += Greeneries_TextChanged;
             cities = (EditText) FindViewById(Resource.Id.citiesEntry);
@@ -155,13 +137,6 @@ namespace TMHelper.Activities
             ms15PointsRadioButton = (RadioButton)FindViewById(Resource.Id.ms15pointsRadio);
             ms15PointsRadioButton.Click += Ms15PointsRadioButton_Click;
 
-            aw0PointsRadioButton = (RadioButton) FindViewById(Resource.Id.aw0pointsRadio);
-            aw0PointsRadioButton.Click += Aw0PointsRadioButton_Click;
-            aw2PointsRadioButton = (RadioButton)FindViewById(Resource.Id.aw2pointsRadio);
-            aw2PointsRadioButton.Click += Aw2PointsRadioButton_Click;
-            aw5PointsRadioButton = (RadioButton)FindViewById(Resource.Id.aw5pointsRadio);
-            aw5PointsRadioButton.Click += Aw5PointsRadioButton_Click;
-
             saveButton = (FloatingActionButton) FindViewById(Resource.Id.saveCorporationFab);
             saveButton.Click += SaveButton_Click;
             deleteButton = (FloatingActionButton) FindViewById(Resource.Id.deleteCorporationFab);
@@ -177,7 +152,6 @@ namespace TMHelper.Activities
             }
 
             deleteButton.Click += DeleteButton_Click;
-
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -250,6 +224,8 @@ namespace TMHelper.Activities
 
         }
 
+        #region SpinnerSetup
+
         private void SetupNameSpinner()
         {
             nameSpinner = (Spinner)FindViewById(Resource.Id.playerNameSpinner);
@@ -273,40 +249,9 @@ namespace TMHelper.Activities
                 playerName = playerNamesList[e.Position];
             }
         }
+        #endregion
 
         #region Radio Buttons
-        //Awards RadioButton click handler
-        private void Aw5PointsRadioButton_Click(object sender, EventArgs e)
-        {
-            ClearAwardChoices();
-            aw5PointsRadioButton.Checked = true;
-            awardsPoints = 5;
-            ChangeTotalValue();
-        }
-
-        private void Aw2PointsRadioButton_Click(object sender, EventArgs e)
-        {
-            ClearAwardChoices();
-            aw2PointsRadioButton.Checked = true;
-            awardsPoints = 2;
-            ChangeTotalValue();
-        }
-
-        private void Aw0PointsRadioButton_Click(object sender, EventArgs e)
-        {
-            ClearAwardChoices();
-            aw0PointsRadioButton.Checked = true;
-            awardsPoints = 0;
-            ChangeTotalValue();
-        }
-
-        private void ClearAwardChoices()
-        {
-            aw0PointsRadioButton.Checked = false;
-            aw2PointsRadioButton.Checked = false;
-            aw5PointsRadioButton.Checked = false;
-        }
-
         //Milestones RadioButton click event handler
         private void Ms15PointsRadioButton_Click(object sender, EventArgs e)
         {
@@ -347,12 +292,9 @@ namespace TMHelper.Activities
             ms10PointsRadioButton.Checked = false;
             ms15PointsRadioButton.Checked = false;
         }
-
-
-
         #endregion
 
-
+        #region TextChangedSettings
         private void Cards_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
         {
             int number;
@@ -444,6 +386,30 @@ namespace TMHelper.Activities
 
             ChangeTotalValue();
         }
+
+        private void Awards_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            int number;
+            if (string.IsNullOrEmpty(awards.Text))
+            {
+                awardsPoints = 0;
+            }
+            else
+            {
+                bool parse = Int32.TryParse(awards.Text, out number);
+                if (parse)
+                {
+                    awardsPoints = number;
+                }
+                else
+                {
+                    Toast.MakeText(this, "Only numbers are allowed for TR", ToastLength.Long).Show();
+                }
+            }
+
+            ChangeTotalValue();
+        }
+        #endregion
 
         private void CalculateTotal()
         {

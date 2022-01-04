@@ -54,10 +54,7 @@ namespace TMHelper.Fragments
             addGameButton.Click += AddGameButton_Click;
 
             showDetailsImageView = (ImageView)view.FindViewById(Resource.Id.detailsImageMF);
-            if (gameRepo.GetAllGames().Count < 1)
-            {
-                showDetailsImageView.Visibility = ViewStates.Invisible;
-            }
+
             showDetailsImageView.Click += ShowDetailsImageView_Click;
 
             SetupViews();
@@ -106,6 +103,12 @@ namespace TMHelper.Fragments
                 gameDateTextView.Text = (!string.IsNullOrEmpty(recentGame.Date) ? recentGame.Date : "");
                 playerNamesTextView.Text = "No corporations added yet";
                 winnerTextView.Text = "";
+            }
+
+            showDetailsImageView.Visibility = ViewStates.Invisible;
+            if (gameRepo.GetAllGames().Count > 0)
+            {
+                showDetailsImageView.Visibility = ViewStates.Visible;
             }
 
         }
